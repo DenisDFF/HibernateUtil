@@ -23,14 +23,17 @@ public class Main {
         FlywayMigration flywayMigration = new FlywayMigration();
         flywayMigration.Migration();
 
-       Session session = HibernateUtil.getInstance().getSessionFactory().openSession();
+        Client client = new Client();
+        client.setName("John Doe");
 
-       Transaction transaction = session.beginTransaction();
-        Client newClient = new Client();
-        newClient.setName("Taras");
-        session.persist(newClient);
-        transaction.commit();
+        Planet planet = new Planet();
+        planet.setId("1");
+        planet.setName("Earth");
 
-       session.close();
+        ClientDao clientDao = new ClientDao();
+        PlanetDao planetDao = new PlanetDao();
+
+        clientDao.save(client);
+        planetDao.save(planet);
     }
 }
