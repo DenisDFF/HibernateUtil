@@ -9,7 +9,7 @@ import java.util.List;
 public class FlywayMigration {
     private static Connection connector;
 
-    public static Connection getConnector() {
+    public Connection getConnector() {
         return connector;
     }
     public void Migration () {
